@@ -1,10 +1,11 @@
 package org.ulpgc.is1.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Agenda {
-    private ArrayList<Contact> contactList;
-    private ArrayList<Group> groupList;
+    private List<Contact> contactList;
+    private List<Group> groupList;
 
     public Agenda() {
         contactList = new ArrayList<>();
@@ -34,11 +35,11 @@ public class Agenda {
         }
     }
 
-    public ArrayList<Contact> getContactList() {
+    public List<Contact> getContactList() {
         return contactList;
     }
 
-    public ArrayList<Group> getGroupList() {
+    public List<Group> getGroupList() {
         return groupList;
     }
 

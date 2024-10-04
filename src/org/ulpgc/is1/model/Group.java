@@ -1,12 +1,13 @@
 package org.ulpgc.is1.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Group {
 
     private String name;
 
-    private ArrayList<Contact> contactList;
+    private List<Contact> contactList;
 
     public Group(String name) {
         this.name = name;
@@ -17,7 +18,7 @@ public class Group {
         return name;
     }
 
-    public ArrayList<Contact> getContactList() {
+    public List<Contact> getContactList() {
         return contactList;
     }
 

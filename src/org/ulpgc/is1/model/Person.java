@@ -13,6 +13,7 @@ public class Person extends Contact{
 
     @Override
     public String getName() {
-        return firstName + lastName;
+        return firstName + " " + lastName;
     }
+
 }
