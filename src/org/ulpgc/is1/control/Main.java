@@ -9,19 +9,19 @@ public class Main {
     static Agenda agenda = new Agenda();
 
     public static void main(String[] args) {
-        Address address1 = new Address("Calle Mayor", 10, 1, "Madrid");
-        Address address2 = new Address("Calle Menor", 20, 2, "Barcelona");
-        Address address3 = new Address("Avenida de la Tecnología", 15, 3, "Valencia");
+        agenda.addPerson("123456789", "juan.perez@example.com", "Juan", "Pérez",
+                "Calle Mayor", 10, 1, "Madrid");
+        agenda.addPerson("987654321", "ana.gomez@example.com",  "Ana", "Gómez",
+                "Calle Menor", 20, 2, "Barcelona");
 
-        agenda.addPerson("123456789", "juan.perez@example.com", address1, "Juan", "Pérez");
-        agenda.addPerson("987654321", "ana.gomez@example.com", address2, "Ana", "Gómez");
-
-        agenda.addCompany("555123456", "contacto@techsolutions.com", address3, "Tech Solutions", "Empresa de tecnología");
+        agenda.addCompany("555123456", "contacto@techsolutions.com", "Tech Solutions",
+                "Empresa de tecnología","Avenida de la Tecnología", 15, 3, "Valencia");
 
         agenda.addGroup("Trabajo");
 
         Contact contact1 = agenda.getContactList().get(0);
-        agenda.addContactToGroup("Trabajo", contact1);
+        Group groupJob = agenda.getGroupList().get(0);
+        groupJob.addContact(contact1);
 
         System.out.println("La agenda tiene " + agenda.getContactList().size() + " contacto(s).");
 

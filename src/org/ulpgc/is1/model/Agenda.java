@@ -11,28 +11,21 @@ public class Agenda {
         contactList = new ArrayList<>();
         groupList = new ArrayList<>();
     }
-    public void addPerson(String telephone, String email, Address address, String firstName, String lastName) {
-        Person person = new Person(telephone, email, address, firstName, lastName);
+    public void addPerson(String telephone, String email, String firstName, String lastName, String street, int number,
+                          int floor, String city) {
+        Person person = new Person(telephone, email, firstName, lastName, street, number, floor, city);
         contactList.add(person);
     }
 
-    public void addCompany(String telephone, String email, Address address, String name, String description) {
-        Company company = new Company(telephone,email, address,name,description);
+    public void addCompany(String telephone, String email, String name, String description,  String street, int number,
+                           int floor, String city) {
+        Company company = new Company(telephone,email,name,description,street, number, floor, city);
         contactList.add(company);
     }
 
 
     public void addGroup(String name) {
         groupList.add(new Group(name));
-    }
-
-    public void addContactToGroup(String groupName, Contact contact) {
-        for (Group group : groupList) {
-            if (group.getName().equals(groupName)) {
-                group.addContact(contact);
-                return;
-            }
-        }
     }
 
     public List<Contact> getContactList() {
