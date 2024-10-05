@@ -1,6 +1,9 @@
 package org.ulpgc.is1.model;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Group {
@@ -27,6 +30,10 @@ public class Group {
         this.contactList.remove(contact);
     }
     public void addContact(Contact contact) {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        Date date = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+
+        Member member = new Member(contact,this, date);
         contactList.add(contact);
         }
     }

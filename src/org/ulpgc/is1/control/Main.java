@@ -1,9 +1,13 @@
 package org.ulpgc.is1.control;
 
 import org.ulpgc.is1.model.Agenda;
-import org.ulpgc.is1.model.Address;
 import org.ulpgc.is1.model.Contact;
 import org.ulpgc.is1.model.Group;
+
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 
 public class Main {
     static Agenda agenda = new Agenda();
@@ -21,7 +25,16 @@ public class Main {
 
         Contact contact1 = agenda.getContactList().get(0);
         Group groupJob = agenda.getGroupList().get(0);
+
         groupJob.addContact(contact1);
+        Contact firstContact = groupJob.getContactList().get(0);
+
+        LocalDateTime localDateTime = LocalDateTime.now();
+        Date date = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy");
+        String formattedDate = dateFormatter.format(date);
+        System.out.println("Fecha formateada: " + formattedDate);
 
         System.out.println("La agenda tiene " + agenda.getContactList().size() + " contacto(s).");
 
