@@ -15,7 +15,7 @@ public class Group {
 
     public Group(String name) {
         this.name = name;
-        this.contactList = new ArrayList<Member>();
+        this.contactList = new ArrayList<>();
     }
 
     public String getName() {
@@ -33,7 +33,6 @@ public class Group {
     public void addContact(Contact contact) {
         LocalDateTime localDateTime = LocalDateTime.now();
         Date date = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
-
         Member member = new Member(contact,this, date);
         contactList.add(member);
     }
