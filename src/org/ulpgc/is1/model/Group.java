@@ -5,23 +5,24 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 public class Group {
 
     private String name;
 
-    private List<Contact> contactList;
+    private List<Member> contactList;
 
     public Group(String name) {
         this.name = name;
-        this.contactList = new ArrayList<>();
+        this.contactList = new ArrayList<Member>();
     }
 
     public String getName() {
         return name;
     }
 
-    public List<Contact> getContactList() {
+    public List<Member> getContactList() {
         return contactList;
     }
 
@@ -34,7 +35,16 @@ public class Group {
         Date date = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
 
         Member member = new Member(contact,this, date);
-        contactList.add(contact);
-        }
+        contactList.add(member);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Group group = (Group) o;
+        return Objects.equals(name, group.name);
+    }
+
+}
 

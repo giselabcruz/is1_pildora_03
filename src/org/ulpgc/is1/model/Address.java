@@ -1,5 +1,7 @@
 package org.ulpgc.is1.model;
 
+import java.util.Objects;
+
 public class Address {
     private String street;
     private int number;
@@ -44,4 +46,13 @@ public class Address {
     public void setCity(String city) {
         this.city = city;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Address address = (Address) o;
+        return number == address.number && floor == address.floor && Objects.equals(street, address.street) && Objects.equals(city, address.city);
+    }
+
 }

@@ -1,5 +1,7 @@
 package org.ulpgc.is1.model;
 
+import java.util.Objects;
+
 public abstract class Contact {
     private String telephone;
     private String email;
@@ -31,5 +33,14 @@ public abstract class Contact {
 
     public String getEmail() {
         return this.email;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Contact contact = (Contact) o;
+        return Objects.equals(telephone, contact.telephone) && Objects.equals(email, contact.email) &&
+                Objects.equals(address, contact.address);
     }
 }

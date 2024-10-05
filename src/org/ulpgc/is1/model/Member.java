@@ -1,6 +1,5 @@
 package org.ulpgc.is1.model;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Member {

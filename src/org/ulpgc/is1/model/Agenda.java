@@ -14,18 +14,18 @@ public class Agenda {
     public void addPerson(String telephone, String email, String firstName, String lastName, String street, int number,
                           int floor, String city) {
         Person person = new Person(telephone, email, firstName, lastName, street, number, floor, city);
-        contactList.add(person);
+        if (!contactList.contains(person)){ contactList.add(person); }
     }
 
     public void addCompany(String telephone, String email, String name, String description,  String street, int number,
                            int floor, String city) {
         Company company = new Company(telephone,email,name,description,street, number, floor, city);
-        contactList.add(company);
+        if (!contactList.contains(company)){ contactList.add(company); }
     }
 
-
     public void addGroup(String name) {
-        groupList.add(new Group(name));
+        Group group = new Group(name);
+        if (!groupList.contains(group)){ groupList.add(group); }
     }
 
     public List<Contact> getContactList() {
